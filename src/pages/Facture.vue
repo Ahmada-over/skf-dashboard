@@ -128,7 +128,7 @@
       <v-window-item value="recap">
         <v-card class="pa-6">
             <div align="center" class="mb-4">
-              <v-img v-if="logoPreview" :src="logoPreview" max-width="150" max-height="150"></v-img>
+              <v-img v-if="typeof logoPreview === 'string'" :src="logoPreview" max-width="150" max-height="150"></v-img>
             </div>
             <div class="mb-10">
               <div>
@@ -191,7 +191,7 @@
 import { ref, computed } from "vue"
 const tab = ref("client")
 const logoFile = ref([])
-const logoPreview = ref(null)
+const logoPreview = ref<string|ArrayBuffer|null>(null)
 import { watch } from "vue"
 const facture = ref({
   client: {
@@ -224,9 +224,15 @@ watch(logoFile, (newFile) => {
   if (newFile && newFile.length > 0) {
     const file = newFile[0]
     const reader = new FileReader()
-    reader.onload = (e) => {
-      logoPreview.value = e.target.result
+    reader.onload = (e:ProgressEvent<FileReader>) => {
+      const result = e.target?.result
+      if(result){
+        logoPreview.value = result;
+      }else{
+        logoPreview.value = null;
+      }
     }
+    if (!file) return;
     reader.readAsDataURL(file)
   } else {
     logoPreview.value = null
