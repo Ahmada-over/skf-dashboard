@@ -23,7 +23,7 @@ declare module 'vue-router/auto-routes' {
     '/Facture': RouteRecordInfo<'/Facture', '/Facture', Record<never, never>, Record<never, never>>,
     '/Inventaire': RouteRecordInfo<'/Inventaire', '/Inventaire', Record<never, never>, Record<never, never>>,
     '/Stock': RouteRecordInfo<'/Stock', '/Stock', Record<never, never>, Record<never, never>>,
-    '/Vente': RouteRecordInfo<'/Vente', '/Vente', Record<never, never>, Record<never, never>>,
+    '/Ventes': RouteRecordInfo<'/Ventes', '/Ventes', Record<never, never>, Record<never, never>>,
   }
 
   /**
@@ -57,8 +57,8 @@ declare module 'vue-router/auto-routes' {
       routes: '/Stock'
       views: never
     }
-    'src/pages/Vente.vue': {
-      routes: '/Vente'
+    'src/pages/Ventes.vue': {
+      routes: '/Ventes'
       views: never
     }
   }

@@ -9,19 +9,19 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { setupLayouts } from 'virtual:generated-layouts'
 import { components } from 'vuetify/dist/vuetify.js'
 //import { routes } from 'vue-router/auto-routes'
-import LoginView from "@/views/auth/LoginView.vue";
 import Dashboard from '@/pages/Dashboard.vue';
 import DefaultLayout from '@/layouts/DefaultLayout.vue';
 import Stock from '@/pages/Stock.vue';
-import Vente from '@/pages/Vente.vue';
+import Ventes from '@/pages/Ventes.vue';
 import Inventaire from '@/pages/Inventaire.vue';
 import Facture from '@/pages/Facture.vue';
+import Login from '@/views/auth/Login.vue';
 
 const routes = [
   {
     path:'/login',
     name: 'login',
-    component:LoginView
+    component:Login
   },
   {
     path:'/',
@@ -30,7 +30,7 @@ const routes = [
       {path:'',redirect:'/dashboard'},
       {path:'dashboard',name:'Dashboard',component:Dashboard, meta: { title: "Tableau de bord" } },
       {path:'stock',name:'Stock',component:Stock, meta: { title: "Stock" } },
-      {path:'vente',name:'Vente',component:Vente, meta: { title: "Vente" } },
+      {path:'vente',name:'Vente',component:Ventes, meta: { title: "Vente" } },
       {path:'inventaire',name:'Inventaire',component:Inventaire, meta: { title: "Inventaire" } },
       {path:'facture',name:'Facture',component:Facture, meta: { title: "Facture" } },
     ]
