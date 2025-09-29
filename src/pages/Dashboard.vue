@@ -27,8 +27,7 @@
 
     </v-row>
     <v-row>
-        <v-col cols="12">      
-            
+        <v-col cols="12">          
         <v-card class="pa-5"> 
             <v-row justify="space-between">
                 <v-col class="me-auto" cols="auto">
@@ -38,6 +37,29 @@
                 <v-col cols="auto">
                     <p>Voir tout</p>
                 </v-col>
+            </v-row>
+            <v-row v-for="(peinture,i) in peintures" :key="i">   
+                <v-col cols="12">
+                 <v-card class="mb-5" outlined>
+                    <v-row class="pa-5" justify="space-between" align="center">
+                        <v-col class="me-auto" cols="auto">
+                            <v-img :src="peinture.image" height="100" width="100" class="ma-5" ></v-img>
+                        </v-col>
+                        <v-col>
+                            <p class="font-weight-bold text-h6">{{ peinture.name }}</p>
+                            <p class="font-weight-thin">{{ peinture.description }}</p>
+                        </v-col>
+                        <v-spacer></v-spacer>
+                        <v-spacer></v-spacer>
+                        <v-spacer></v-spacer>
+                        <v-col>
+                            <p class="font-weight-bold"><span :class="peinture.statut === 'En Stock' ? 'principal' : 'text-error'">{{ peinture.statut }}</span></p>
+                            <p class="font-weight-bold text-h6">${{ peinture.price }}</p>
+                        </v-col>
+                    </v-row>
+                </v-card>   
+                </v-col> 
+
             </v-row>
         </v-card> 
         </v-col>
@@ -49,22 +71,16 @@
       </v-col>
     </v-row>
 </v-container>
-
-  
-
 </template>
 <script setup lang="ts">
 import IconDollar from "@/assets/images/dollar.svg";
 import IconBillet from "@/assets/images/billet.svg";
 import IconOccuracy from "@/assets/images/occuracy.svg";
+import PeiturePicture from "@/assets/images/national.png";
 import Bar from "@/helpers/Bar.vue";
 import Charts from "@/helpers/Charts.vue";
-interface CardItem{
-    intitule: string;
-    prix: string;
-    icon: string;
-    date: string;
-}
+import type { CardItem, Peinture } from "@/types";
+
 let items:CardItem[] = [
     {
         intitule:"Ventes journalières",
@@ -84,5 +100,35 @@ let items:CardItem[] = [
         icon: IconOccuracy,
         date:"9 feburary 2024",
     },
+]
+
+let peintures:Peinture[]= [
+    {
+        name:"Peinture acrylique",
+        description:"Peinture acrylique de haute qualité pour des finitions durables.",
+        price:25.99,
+        quantity:100,
+        category:"Peinture",
+        image:PeiturePicture,
+        statut:"En Stock"
+    },
+    {
+        name:"Peinture à l'huile",
+        description:"Peinture à l'huile riche en pigments pour des couleurs vibrantes.",
+        price:30.50,
+        quantity:50,
+        category:"Peinture",
+        image:PeiturePicture,
+        statut:"En Rupture"
+    },
+    {
+        name:"Vernis protecteur",
+        description:"Vernis transparent pour protéger et embellir vos surfaces peintes.",
+        price:15.75,
+        quantity:200,
+        category:"Vernis",
+        image:PeiturePicture,
+        statut:"En Stock"
+    }
 ]
 </script>

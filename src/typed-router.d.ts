@@ -20,9 +20,10 @@ declare module 'vue-router/auto-routes' {
   export interface RouteNamedMap {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
     '/Dashboard': RouteRecordInfo<'/Dashboard', '/Dashboard', Record<never, never>, Record<never, never>>,
+    '/Facture': RouteRecordInfo<'/Facture', '/Facture', Record<never, never>, Record<never, never>>,
     '/Inventaire': RouteRecordInfo<'/Inventaire', '/Inventaire', Record<never, never>, Record<never, never>>,
     '/Stock': RouteRecordInfo<'/Stock', '/Stock', Record<never, never>, Record<never, never>>,
-    '/Vente': RouteRecordInfo<'/Vente', '/Vente', Record<never, never>, Record<never, never>>,
+    '/Ventes': RouteRecordInfo<'/Ventes', '/Ventes', Record<never, never>, Record<never, never>>,
   }
 
   /**
@@ -44,6 +45,10 @@ declare module 'vue-router/auto-routes' {
       routes: '/Dashboard'
       views: never
     }
+    'src/pages/Facture.vue': {
+      routes: '/Facture'
+      views: never
+    }
     'src/pages/Inventaire.vue': {
       routes: '/Inventaire'
       views: never
@@ -52,8 +57,8 @@ declare module 'vue-router/auto-routes' {
       routes: '/Stock'
       views: never
     }
-    'src/pages/Vente.vue': {
-      routes: '/Vente'
+    'src/pages/Ventes.vue': {
+      routes: '/Ventes'
       views: never
     }
   }
