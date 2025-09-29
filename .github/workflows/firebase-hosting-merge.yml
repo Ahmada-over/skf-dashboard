@@ -11,6 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+       # Installer Node.js (choisir la version de ton projet)
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      # Installer les dépendances
+      - run: npm ci      
       - run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
