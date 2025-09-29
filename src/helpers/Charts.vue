@@ -30,6 +30,9 @@ import {
   LinearScale,
   PointElement
 } from "chart.js";
+ import { ref } from 'vue'
+
+const toggle = ref(null)
 import { Line } from "vue-chartjs";
 
 ChartJS.register(Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale, PointElement);
@@ -60,11 +63,30 @@ const chartOptions = { responsive: true, maintainAspectRatio: false };
 <template>
     <v-card>
       <v-container>    
-        <v-row>
-            <v-col>
+        <v-row justify="space-between">
+            <v-col class="me-auto" cols="auto">
                 <p class="text-h6">Explication</p>
             </v-col>
-            <v-col></v-col>
+                <v-spacer></v-spacer>
+            <v-col>
+              <v-row>
+                <v-btn-toggle v-model="toggle" class="me-5" color="#FAC1D9">
+                  <v-btn>
+                    Mois
+                  </v-btn>
+                  <v-btn>
+                    Année
+                  </v-btn>
+                  <v-btn>
+                    Jour
+                  </v-btn>
+                </v-btn-toggle> 
+                <v-btn variant="outlined" class="principal">
+                  <v-icon>mdi-download</v-icon>
+                    Export
+                  </v-btn>
+              </v-row>
+            </v-col>
         </v-row>
         </v-container>  
            <div class="pa-5">

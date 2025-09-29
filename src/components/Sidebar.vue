@@ -1,5 +1,9 @@
 <template>
-    <v-navigation-drawer class="text-center rounded-e-xl" >
+    <v-navigation-drawer 
+      expand-on-hover
+        permanent
+        rail
+    class="text-center rounded-e-xl" >
       <div class="pa-15 d-flex flex-column justify-space-between fill-height">
         <div class="">
           <p class="principal text-h3 font-weight-bold mb-10">SKF</p>
@@ -43,5 +47,6 @@ let items: SidebarItem[] = [
       { title: "Gestion de stock", href: "/stock", img:StockImage},
       { title: "Inventaire", href: "/projects",img:InventoryImage },
       { title: "Ventes", href: "/customers", img:VentesImage },
+      { title: "Facture", href: "/facture", img:VentesImage },
     ];
 </script>

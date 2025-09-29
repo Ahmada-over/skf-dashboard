@@ -15,6 +15,7 @@ import DefaultLayout from '@/layouts/DefaultLayout.vue';
 import Stock from '@/pages/Stock.vue';
 import Vente from '@/pages/Vente.vue';
 import Inventaire from '@/pages/Inventaire.vue';
+import Facture from '@/pages/Facture.vue';
 
 const routes = [
   {
@@ -31,6 +32,7 @@ const routes = [
       {path:'stock',name:'Stock',component:Stock, meta: { title: "Stock" } },
       {path:'vente',name:'Vente',component:Vente, meta: { title: "Vente" } },
       {path:'inventaire',name:'Inventaire',component:Inventaire, meta: { title: "Inventaire" } },
+      {path:'facture',name:'Facture',component:Facture, meta: { title: "Facture" } },
     ]
   },
   {
