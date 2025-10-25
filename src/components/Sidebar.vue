@@ -20,7 +20,7 @@
         </div>
 
         <!-- Bouton en bas -->
-       <div link to="/login">
+       <div @click="logout">
           <v-img :src="LogoutImg" height="20" ></v-img>
           <p class="principal">
             Logout
@@ -36,6 +36,11 @@ import StockImage from "../assets/images/stock.svg";
 import InventoryImage from "../assets/images/inventaire.svg";
 import VentesImage from "../assets/images/inventory 1.svg";
 import LogoutImg from "../assets/images/logout.svg";
+import {supabase} from '@/supabase';
+import {useRouter} from 'vue-router';
+
+const router = useRouter();
+
 interface SidebarItem {
     title: string;
     href: string;
@@ -43,10 +48,24 @@ interface SidebarItem {
 }
 
 let items: SidebarItem[] = [
-      { title: "Dashboard", href: "/",img:DashbordImage },
-      { title: "Gestion de stock", href: "/stock", img:StockImage},
-      { title: "Inventaire", href: "/projects",img:InventoryImage },
-      { title: "Ventes", href: "/customers", img:VentesImage },
-      { title: "Facture", href: "/facture", img:VentesImage },
+      { title: "Dashboard", href: "dashboard",img:DashbordImage },
+      { title: "Gestion de stock", href: "stock", img:StockImage},
+      { title: "Inventaire", href: "inventaire",img:InventoryImage },
+      { title: "Ventes", href: "vente", img:VentesImage },
+      { title: "Facture", href: "facture", img:VentesImage },
     ];
+
+const logout = async () =>{
+  try{
+    const {error} = await supabase.auth.signOut();
+    if(error) throw error;
+    alert("Déconnexion réussi");
+    router.push("/")
+  }catch(error){
+    if(error instanceof Error)
+  {
+    alert("Erreur :"+error.message)
+  }
+  }
+}
 </script>
