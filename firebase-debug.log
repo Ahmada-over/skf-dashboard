@@ -1,0 +1,26 @@
+[debug] [2025-10-25T13:57:06.520Z] ----------------------------------------------------------------------
+[debug] [2025-10-25T13:57:06.522Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only hosting
+[debug] [2025-10-25T13:57:06.522Z] CLI Version:   14.22.0
+[debug] [2025-10-25T13:57:06.522Z] Platform:      darwin
+[debug] [2025-10-25T13:57:06.522Z] Node Version:  v22.19.0
+[debug] [2025-10-25T13:57:06.522Z] Time:          Sat Oct 25 2025 13:57:06 GMT+0000 (Greenwich Mean Time)
+[debug] [2025-10-25T13:57:06.522Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-10-25T13:57:06.619Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-10-25T13:57:06.619Z] > authorizing via signed-in user (konamed20@gmail.com)
+[debug] [2025-10-25T13:57:06.619Z] [iam] checking project skf-management for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-10-25T13:57:06.619Z] Checked if tokens are valid: false, expires at: 1761390553279
+[debug] [2025-10-25T13:57:06.620Z] Checked if tokens are valid: false, expires at: 1761390553279
+[debug] [2025-10-25T13:57:06.620Z] > refreshing access token with scopes: []
+[debug] [2025-10-25T13:57:06.620Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-25T13:57:06.620Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-25T13:57:07.101Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-10-25T13:57:07.101Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-25T13:57:07.113Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/skf-management:testIamPermissions [none]
+[debug] [2025-10-25T13:57:07.113Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/skf-management:testIamPermissions x-goog-quota-user=projects/skf-management
+[debug] [2025-10-25T13:57:07.113Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/skf-management:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-10-25T13:57:08.231Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/skf-management:testIamPermissions 200
+[debug] [2025-10-25T13:57:08.231Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/skf-management:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-10-25T13:57:08.232Z] Checked if tokens are valid: true, expires at: 1761404226101
+[debug] [2025-10-25T13:57:08.232Z] Checked if tokens are valid: true, expires at: 1761404226101
+[debug] [2025-10-25T13:57:08.232Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/skf-management [none]
