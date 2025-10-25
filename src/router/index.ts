@@ -16,28 +16,39 @@ import Ventes from '@/pages/Ventes.vue';
 import Inventaire from '@/pages/Inventaire.vue';
 import Facture from '@/pages/Facture.vue';
 import Login from '@/views/auth/Login.vue';
+import Register from '@/views/auth/Register.vue';
+import { supabase } from '@/supabase';
 
 const routes = [
   {
-    path:'/login',
+    path:'',
     name: 'login',
     component:Login
   },
   {
-    path:'/',
+    path:'/register',
+    name: 'register',
+    component:Register
+  },
+  {
+    path:'/dash',
     component:DefaultLayout,
+    meta:{
+      requiresAuth:true
+    },
     children:[
-      {path:'',redirect:'/dashboard'},
-      {path:'dashboard',name:'Dashboard',component:Dashboard, meta: { title: "Tableau de bord" } },
-      {path:'stock',name:'Stock',component:Stock, meta: { title: "Stock" } },
-      {path:'vente',name:'Vente',component:Ventes, meta: { title: "Vente" } },
-      {path:'inventaire',name:'Inventaire',component:Inventaire, meta: { title: "Inventaire" } },
-      {path:'facture',name:'Facture',component:Facture, meta: { title: "Facture" } },
+      // {path:'',redirect:'/login'},
+      {path:'dashboard',name:'Dashboard',component:Dashboard, meta: { 
+        title: "Tableau de bord" } },
+      {path:'stock',name:'stock',component:Stock, meta: { title: "Stock" } },
+      {path:'vente',name:'vente',component:Ventes, meta: { title: "Vente" } },
+      {path:'inventaire',name:'inventaire',component:Inventaire, meta: { title: "Inventaire" } },
+      {path:'facture',name:'facture',component:Facture, meta: { title: "Facture" } },
     ]
   },
   {
     path:'/:pathMatch(.*)*',
-    redirect:'/dashboard'
+    redirect:'/dash/dashboard'
   }
 ]
 
@@ -65,4 +76,14 @@ router.isReady().then(() => {
   localStorage.removeItem('vuetify:dynamic-reload')
 })
 
+router.beforeEach(async (to,from,next)=>{
+  const { data } = await supabase.auth.getSession();
+  const isLoggedIn = !!data.session
+
+  if(to.meta.requiresAuth && !isLoggedIn){
+    next('/')
+  }else{
+    next()
+  }
+})
 export default router

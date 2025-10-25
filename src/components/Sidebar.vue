@@ -43,10 +43,10 @@ interface SidebarItem {
 }
 
 let items: SidebarItem[] = [
-      { title: "Dashboard", href: "/",img:DashbordImage },
-      { title: "Gestion de stock", href: "/stock", img:StockImage},
-      { title: "Inventaire", href: "/projects",img:InventoryImage },
-      { title: "Ventes", href: "/customers", img:VentesImage },
-      { title: "Facture", href: "/facture", img:VentesImage },
+      { title: "Dashboard", href: "dashboard",img:DashbordImage },
+      { title: "Gestion de stock", href: "stock", img:StockImage},
+      { title: "Inventaire", href: "inventaire",img:InventoryImage },
+      { title: "Ventes", href: "vente", img:VentesImage },
+      { title: "Facture", href: "facture", img:VentesImage },
     ];
 </script>

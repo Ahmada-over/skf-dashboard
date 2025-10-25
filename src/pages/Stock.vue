@@ -36,6 +36,11 @@
                 </v-btn>
             </v-btn-toggle> -->
         </v-row>
+        <v-row class="d-flex justify-content-end">
+            <v-col>
+                <v-btn color="#FAC1D9">Ajouter une stocke</v-btn>
+            </v-col>
+        </v-row>
         <v-row>
             <v-col cols="12">
                 <v-table height="300px" fixed-header striped="even">
