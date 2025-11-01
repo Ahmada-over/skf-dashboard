@@ -2,11 +2,11 @@
     <v-navigation-drawer 
       expand-on-hover
         permanent
-        rail
+       
     class="text-center rounded-e-xl" >
       <div class="pa-15 d-flex flex-column justify-space-between fill-height">
         <div class="">
-          <p class="principal text-h3 font-weight-bold mb-10">SKF</p>
+          <p class="principal text-h3 font-weight-bold mb-10">KONATE BTP</p>
           <v-list density="compact" nav>
               <v-list-item class="mb-10" v-for="(value,i) in items" link :to="value.href" :key="i" :value="value">
                 <div >
