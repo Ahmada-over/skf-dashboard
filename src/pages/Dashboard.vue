@@ -167,7 +167,7 @@ onMounted(async() => {
     },
     {
         intitule:"Nombre de tables",
-        prix:"25",
+        prix:numTables.toString(),
         icon: IconOccuracy,
         date:"9 feburary 2024",
     },
