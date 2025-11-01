@@ -77,11 +77,17 @@ import IconDollar from "@/assets/images/dollar.svg";
 import IconBillet from "@/assets/images/billet.svg";
 import IconOccuracy from "@/assets/images/occuracy.svg";
 import PeiturePicture from "@/assets/images/national.png";
+import {ref,onMounted} from 'vue';
 import Bar from "@/helpers/Bar.vue";
 import Charts from "@/helpers/Charts.vue";
 import type { CardItem, Peinture } from "@/types";
+import { supabase } from "@/supabase";
 
-let items:CardItem[] = [
+
+const items = ref<CardItem[]>([]);
+const peintures = ref<Peinture[]>([]);
+
+/*let items:CardItem[] = [
     {
         intitule:"Ventes journalières",
         prix:"$2k",
@@ -100,9 +106,9 @@ let items:CardItem[] = [
         icon: IconOccuracy,
         date:"9 feburary 2024",
     },
-]
+]*/
 
-let peintures:Peinture[]= [
+/*let peintures:Peinture[]= [
     {
         name:"Peinture acrylique",
         description:"Peinture acrylique de haute qualité pour des finitions durables.",
@@ -130,5 +136,44 @@ let peintures:Peinture[]= [
         image:PeiturePicture,
         statut:"En Stock"
     }
-]
+]*/
+
+onMounted(async() => {
+    const {data,error} = await supabase.from('Products').select('*');
+    if(error) console.error(error);
+    else peintures.value = data.map(p=>({
+        name:p.nom,
+        description:p.description,
+        price:p.prix_unitaire,
+        quantity:p.quantite,
+        category:p.categorie_id,
+        image:p.image,
+        statut:p.quantite > 0 ? 'En stock':'En rupture'
+    }));
+
+    const numTables = peintures.value.length || 0
+    items.value = [
+         {
+        intitule:"Ventes journalières",
+        prix:"$2k",
+        icon: IconDollar,
+        date:"9 feburary 2024",
+    },
+    {
+        intitule:"Revenues mensulles",
+        prix:"$55k",
+        icon: IconBillet,
+        date:"9 feburary 2024",
+    },
+    {
+        intitule:"Nombre de tables",
+        prix:"25",
+        icon: IconOccuracy,
+        date:"9 feburary 2024",
+    },
+    ]
+
+
+})
+
 </script>

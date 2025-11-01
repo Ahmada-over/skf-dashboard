@@ -1,6 +1,6 @@
 <template>
     <div class="ma-auto">
-    <p class="text-h1 principal font-weight-bold text-center mb-10">SKF</p>
+    <p class="text-h1 principal font-weight-bold text-center mb-10">KONATE BTP</p>
     <v-card class="pa-10 rounded-xl">
         <v-card-title class="text-h2  text-center">Connexion!</v-card-title>
         <p class="text-h7  text-center">Entrez vos informations valide pour se connecter</p>
